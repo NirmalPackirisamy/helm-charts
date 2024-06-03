@@ -130,20 +130,20 @@ Here are examples of commands you can use to create and initialize the databases
 ```bash
 # in https://github.com/temporalio/temporal git repo dir
 export SQL_PLUGIN=mysql8
-export SQL_HOST=mysql_host
-export SQL_PORT=3306
-export SQL_USER=mysql_user
-export SQL_PASSWORD=mysql_password
+export SQL_HOST=localhost
+export SQL_PORT=3312
+export SQL_USER=freshidv2_staging
+export SQL_PASSWORD=<mysql-password-goes-here>
 
 make temporal-sql-tool
 
-./temporal-sql-tool --database temporal create-database
-SQL_DATABASE=temporal ./temporal-sql-tool setup-schema -v 0.0
-SQL_DATABASE=temporal ./temporal-sql-tool update -schema-dir schema/mysql/v8/temporal/versioned
+./temporal-sql-tool --database temporal_v2 create-database
+SQL_DATABASE=temporal_v2 ./temporal-sql-tool setup-schema -v 0.0
+SQL_DATABASE=temporal_v2 ./temporal-sql-tool update -schema-dir schema/mysql/v8/temporal/versioned
 
-./temporal-sql-tool --database temporal_visibility create-database
-SQL_DATABASE=temporal_visibility ./temporal-sql-tool setup-schema -v 0.0
-SQL_DATABASE=temporal_visibility ./temporal-sql-tool update -schema-dir schema/mysql/v8/visibility/versioned
+./temporal-sql-tool --database temporal_v2_visibility create-database
+SQL_DATABASE=temporal_v2_visibility ./temporal-sql-tool setup-schema -v 0.0
+SQL_DATABASE=temporal_v2_visibility ./temporal-sql-tool update -schema-dir schema/mysql/v8/visibility/versioned
 ```
 
 Once you initialized the two databases, fill in the configuration values in `values/values.mysql.yaml`, and run
