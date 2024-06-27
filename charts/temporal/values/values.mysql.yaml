@@ -10,7 +10,7 @@ server:
           port: 3306
           database: temporal_v2
           user: freshidv2_staging
-          password: <mysql-password-goes-here>
+          existingSecret: freshid--temporal-mysql
           maxConns: 20
           maxConnLifetime: "1h"
 
@@ -23,7 +23,7 @@ server:
           port: 3306
           database: temporal_v2_visibility
           user: freshidv2_staging
-          password: <mysql-password-goes-here>
+          existingSecret: freshid--temporal-mysql
           maxConns: 20
           maxConnLifetime: "1h"
 
